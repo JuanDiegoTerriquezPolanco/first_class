@@ -15,3 +15,9 @@ greetMe();
 
 logGreeting(greetMe);
 //funtions are first class, pass it as a parameter
+
+//interpolacion de strings "clasica"
+let logGreeting1 = (miNombre,miColor) =>{
+    console.log("Hola" + miNombre + "buenos dias! Tu color favorito es el" + miColor);
+}
+logGreeting1("Carlos","azul");

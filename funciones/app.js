@@ -3,7 +3,9 @@ greet(); //inveke
 
 //functions as parameters
 let logGreeting = fn => fn();
-logGreeting(greet);
+logGreeting(function () {
+    console.log("Hello from a function created on the fly")
+});
 //estamos pasando la función greet como
 //parámetro e invocandola con el nombre del argumento fn
 

@@ -1,0 +1,2 @@
+# first_class
+First class functions: Todo lo que puedes hacer con otros tipos de datos, puedes hacerlo con una función en Javascript, puedes pasarlas como parámetros, asignarlas a una variable, ponerlas dentro de un array e invocarlas   Modifica el código en la forma en la que se te indica, una vez terminadas las modificaciones y comprobando que tu código funciona,agrega los cambios (git add .) Commitea los cambios (git commit -m “mensaje) Empuja los cambios (git push repoRemoto master)

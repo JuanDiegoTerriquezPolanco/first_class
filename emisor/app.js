@@ -1,8 +1,23 @@
-var Emitter = require('./emitter');
+//var Emitter = require('./emitter');
+var Emitter = require('events');
+const config = require('./config');
+/*La dependencia del “event emitter” de NODE JS funciona tambien, sin embargo, "require()" no es parte de la API de JavaScript estándar. 
+Pero en Node.js, es una función integrada con un propósito especial: cargar módulos. Una gran diferencia entre los módulos de Node.js 
+y el JavaScript del navegador es cómo se accede al código de un script desde el código de otro script.
+
+    -En el navegador JavaScript, los scripts se agregan a través de el <script> element. Cuando se ejecutan, todos tienen acceso 
+    directo al alcance global, un "espacio compartido" entre todos los scripts.
+    -En Node.js, cada módulo tiene su propio alcance. Un módulo no puede acceder directamente a las cosas definidas en otro módulo a 
+    menos que decida exponerlas. Para exponer elementos de un módulo, deben asignarse a "exports" o "module.exports". Para que un módulo 
+    acceda a otro módulo exportso module.exports, debe usar "require()". */
+
 var emtr = new Emitter();
-emtr.on('greet', () => {
+emtr.on(config.events.GREET, () => {
     console.log('Somewhere, someone said hello.');
 });
+/*El archivo compila bien, usado las "magic strings" te ahorras una posible falta ortográfica al escribir la string, simplemente se
+declara en una vez la string en un archivo aparte y se llama cada vez que se quiera utilizar evitas el estarla escibiendo siempre y
+la posibilidad de escribirla mal y que sea dificil encontrar el error.*/
 emtr.on('greet', () => {
     console.log('A greeting ocurred!');
 });

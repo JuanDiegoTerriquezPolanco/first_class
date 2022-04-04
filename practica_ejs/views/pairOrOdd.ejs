@@ -4,17 +4,17 @@
     </head>
     <body>
         <% if (ID%2==0) { %>
-            <ul>
+            <ol>
                 <%for (let i = 0; i < ID*2; i++) {%>
                     <li> ES PAR </li>
                 <%}%>
-            </ul>
+            </ol>
         <%} else { %>
-            <ul>
+            <ol>
                 <%for (let i = 0; i < ID; i++) {%>
-                    <li> ES PAR </li>
+                    <li> ES IMPAR </li>
                 <%}%>
-            </ul>
+            </ol>
         <% } %>
     </body>
 </html>

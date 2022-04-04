@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link href="assets/style.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <% if (ID%2==0) { %>
+            <ul>
+                <%for (let i = 0; i < ID*2; i++) {%>
+                    <li> ES PAR </li>
+                <%}%>
+            </ul>
+        <%} else { %>
+            <ul>
+                <%for (let i = 0; i < ID; i++) {%>
+                    <li> ES PAR </li>
+                <%}%>
+            </ul>
+        <% } %>
+    </body>
+</html>

@@ -3,18 +3,19 @@
         <link href="assets/style.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-        <% if (ID%2==0) { %>
+        <% if (ID%2==0) { %> <!--Recive el valor de ID y comprueva si es par o no -->
             <ol>
-                <%for (let i = 0; i < ID*2; i++) {%>
+                <%for (let i = 0; i < ID*2; i++) {%> <!--Recive el valor de ID en un for y cicla la lista hasta ID*2 de veces-->
                     <li> ES PAR </li>
                 <%}%>
             </ol>
         <%} else { %>
             <ol>
-                <%for (let i = 0; i < ID; i++) {%>
+                <%for (let i = 0; i < ID; i++) {%> <!--Recive el valor de ID en un for y cicla la lista hasta ID de veces-->
                     <li> ES IMPAR </li>
                 <%}%>
             </ol>
         <% } %>
     </body>
 </html>
+<!--Los valores procesados en JS van en <% %> y los HTML van normal-->

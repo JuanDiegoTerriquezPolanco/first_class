@@ -12,7 +12,7 @@ app.get('/',function (req,res){
     res.render('index');
 });
 app.get('/pairorodd/:id',function (req,res){
-    res.render('pairOrOdd',{ ID: req.params.id});
+    res.render('pairOrOdd',{ ID: req.params.id}); //se llama el archivo 'pairOrOdd' y se le manda el valor de ID
 });
 app.get('/api',function (req,res){
     res.json({firstname: 'John', lastname: 'Doe'});

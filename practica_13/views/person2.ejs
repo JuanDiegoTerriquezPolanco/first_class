@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Person Name: <%= ID %></h1>
+    <!--<h1>Message: <%= MSG %></h1>-->
+    <!--<h1>Times: <%= TIME %></h1>-->
+    
+    <% switch (MSG) { case 'bienvenido': %> <!--Utilizamos un switch para seleccionar los caso para cada mensaje-->
+            <h2>Mensaje: <%= MSG %></h2>
+             <% for (let i = 0; i < TIME; i++) { %> <!--Con for realizamos las repeticiones pedidas por la variable TIME-->
+                <p>Bienvenido: <%= ID %></p>
+            <% } %>
+        <% break; %>
+
+        <% case 'adios': %> 
+            <h2>Mensaje <%= MSG %></h2><!--Realizamos su respectivo saludo para cada caso-->
+            <% for (let i = 0; i < TIME; i++) { %>
+                <p>Adios <%= ID %></p> <!--Y su repeticion con su nombre como se especifique-->
+            <% } %>
+        <% break; %>
+
+        <% case 'hola': %>
+            <h2>Mensaje: <%= MSG %></h2>
+            <% for (let i = 0; i < TIME; i++) { %>
+                <p>Hola <%= ID %></p>
+            <% } %>
+        <% break %>;
+        <% default: %>
+            <h2>Mensaje: ERROR</h2><!--Creamos un mensaje de error en caso de no introducir el mensaje correcto-->
+        <% break; %>
+    <% }  %>
+</body>
+</html>

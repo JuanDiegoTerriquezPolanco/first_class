@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="/student" method="POST">
+    <label for="fname">First name: </label>
+    <input type="text" name="fname" id="fname"><br><br>
+    <label for="lname">Last name: </label>
+    <input type="text" name="lname" id="lname"><br><br>
+    <label for="mname">-Middle name: </label>
+    <input type="text" name="mname" id="mname"><br><br>
+    <input type="submit" value="Submit">
+    </form>
+    <script>
+        $.ajax({
+            type: "POST",
+            url: "/personjson",
+            data: JSON.stringify({ firstname: 'Juan', lastname: 'Parra' }),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+    </script>
+    <!-- lo que sucede aquí, es que debemos configurar los parámetros involucrados en la petición:
+    type: “POST”, especificando que esta petición va por el método POST
+    url: “/personjson”, nombre del “endpoint” que va a responder a esta petición, debemos asegurarnos que corresponde con la que definimos 
+    en nuestro código
+
+    data: JSON.stringify({firstname:”Juan”, lastname: “Parra”}), aquí le estamos pasando el objeto que contiene la información que 
+    necesitamos que llegue a nuestro endpoint, para este ejemplo, se trata de un object literal que contiene dos “key:value pairs”, 
+    la primera key es “firstname” y su valor es “Juan”, y la segunda key es “lastname” y su valor es “Parra”. Es importante hacer notar, 
+    que en el “código” el objeto {firstname:”Juan”, lastname: “Parra”} es un objeto JSON válido, y para que viaje en el “body” de la 
+    petición, debe de ir en formato de “texto”, es por eso que se hace la llamada a JSON.stringify, cuando se recibe en el route handler, 
+    la llamada a “express.json” hace la conversion de string a “object” y lo pone a nuestra disposición mediante el objeto req.body mas el 
+    nombre de la llave a la que queremos acceder, en este caso serían: req.body.firstname y req.body.lastname.
+    datatype: json, para definir el tipo de dato que esperamos como respuesta desde el server.
+    contentType: application/json. Su valor por default es default: 'application/x-www-form-urlencoded; charset=UTF-8', pero en este caso, 
+    lo cambiamos al tipo de datos que estamos enviando qué es JSON. -->
+</body>
+</html>

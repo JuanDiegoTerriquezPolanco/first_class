@@ -28,5 +28,29 @@ router.post('/addPerson', function(req, res) {
     }); // crea la entidad
     myPerson.save(); //guarda en bd
 });
+/* DELETE PERSON */
+router.get('/deletePerson/:id', function(req,res,next) {
+    Person.findByIdAndRemove(req.params.id, req.body, function(err,post){
+        if (err) return next(err);
+        res.redirect('/persons')
+    });
+});
+/* UPDATE PERSON */
+router.get('/findById/:id', function(req,res,next){
+    Person.findById(req.params.id, function(err,person){
+        if(err) return next (err);
+        res.render('personUpdate',{person});
+    });
+});
+router.post('/updatePerson',function(req,res,next){
+    Person.findByIdAndUpdate(req.body.objId,{
+        nombre: req.body.nombre,
+        edad: req.body.edad,
+        tipoSangre: req.body.tipoSangre,
+        nss: req.body.nss }, function(err,post){
+        if(err) return next(err);
+        res.redirect('/persons');
+    });
+})
 
 module.exports = router;
